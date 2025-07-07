@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vehicle Manager</title>
+    <link rel="shortcut icon" href="../imgs/favicon.ico" type="image/-icon">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a class="nav-botao" href="cadastra.html">Cadastrar</a>
+            <a class="nav-botao" href="pesquisa.html">Pesquisar</a>
+        </nav>
+    </header>
+    <main>
+        <div class="main-div">
+            <div class="main-div-nav">
+                <a class="main-div-nav-link" href="cadastra.html">Veículo</a>
+                <a class="main-div-nav-link" href="cadastraTipo.html">Tipo</a>
+                <a class="main-div-nav-link" href="cadastraMarca.html">Marca</a>
+            </div>
+            <a href="../index.html" class="main-div-link">Voltar para página inicial</a>
+        </div>
+        <section class="form-container">
+            <h2 class="form-titulo">Cadastro de Veículos</h2>
+            <form id="form">
+                <label for="marca">Marca</label>
+                <input type="text" id="marca" name="marca" maxlength="50" required>
+
+                <label for="modelo">Modelo</label>
+                <input type="text" id="modelo" name="modelo" maxlength="50" required>
+
+                <label for="placa">Placa</label>
+                <input type="text" id="placa" name="placa" maxlength="7" required>
+
+                <label for="ano">Ano</label>
+                <input type="number" id="ano" name="ano" min="1900" max="2099" required>
+
+                <label for="cor">Cor</label>
+                <input type="text" id="cor" name="cor" maxlength="25" required>
+
+                <label for="tipo">Tipo</label>
+                <input type="text" id="tipo" name="tipo" maxlength="25" required>
+
+                <label for="status">Status</label>
+                <select id="status" name="status" class="status-select" required>
+                    <option value="Disponível">Disponível</option>
+                    <option value="Em uso">Em uso</option>
+                    <option value="Manutenção">Manutenção</option>
+                    <option value="Vendido">Vendido</option>
+                </select>
+
+                <button type="submit" class="form-botao">Cadastrar</button>
+            </form>
+        </section>
+    </main>
+    <script src="js/cadastra.js"></script>
+</body>
+
+</html>

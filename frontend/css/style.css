@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+body {
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* CABEÇALHO */
+header {
+  text-align: center;
+  background: #142986;
+  padding: 22px;
+}
+
+.nav-botao {
+  margin: 0 8px;
+  padding: 8px;
+  cursor: pointer;
+  text-transform: uppercase;
+  background: transparent;
+  color: white;
+  border: none;
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.nav-botao:hover {
+  border-bottom: 1px solid white;
+  transition-duration: 3s;
+}
+
+/* MAIN */
+.main-div-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  text-transform: uppercase;
+  background-color: #1e3fa1;
+  padding: 4px;
+}
+
+.main-div-nav-link {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.main-div-nav-link:hover {
+  color: #90a1f0;
+}
+
+.main-div {
+  text-align: center;
+}
+
+.main-titulo {
+  margin: 24px 0 8px;
+  padding: 0;
+  text-align: center;
+  color: #142986;
+  font-size: 32px;
+}
+
+.main-div-link {
+  display: block;
+  margin: 20px 0 0;
+}
+
+.link {
+  display: block;
+}
+
+.section-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 100px;
+  gap: 50px;
+}
+
+.section-imagem {
+  width: 400px;
+}
+
+.section-estat {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+}
+
+.estat-titulo {
+  background-color: #90a1f0;
+  padding: 2px 16px;
+  border-radius: 8px;
+}
+
+.estat-div {
+  display: flex;
+  align-items: center;
+}
+
+.section-icon {
+  width: 50px;
+  margin-right: 10px;
+}
+
+.icone {
+  width: 35px;
+}
+
+/* FORM */
+.form-container {
+  background-color: #ffffff;
+  max-width: 500px;
+  margin: 25px auto;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(20, 41, 134, 0.2);
+  border-top: 5px solid #142986;
+}
+
+.form-titulo {
+  text-align: center;
+  color: #142986;
+  margin: 0 0 20px;
+  font-size: 32px;
+}
+
+label {
+  display: block;
+  margin-bottom: 4px;
+  color: #1e3fa1;
+  font-weight: bold;
+}
+
+input,
+select,
+.form-botao {
+  width: 95%;
+  padding: 10px;
+  margin-bottom: 18px;
+  border: 1px solid #c7d6f2;
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: #f8faff;
+  color: #142986;
+}
+
+select,
+.form-botao {
+  width: 99.5%;
+}
+
+input:focus,
+select:focus {
+  border-color: #142986;
+  outline: none;
+}
+
+.form-botao {
+  background-color: #142986;
+  color: #ffffff;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+.form-botao:hover {
+  background-color: #1e3fa1;
+}
