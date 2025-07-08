@@ -173,3 +173,41 @@ select:focus {
 .form-botao:hover {
   background-color: #1e3fa1;
 }
+
+/* TABELA */
+#tabela {
+  width: 90%;
+  max-width: 1000px;
+  margin: 30px auto;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+}
+
+#tabela thead {
+  background-color: #142986;
+  color: white;
+}
+
+#tabela thead th {
+  padding: 12px;
+  font-size: 14px;
+  font-weight: bold;
+  border: 1px solid #1e3fa1;
+  text-align: center;
+}
+
+#tabela tbody td {
+  padding: 10px;
+  border: 1px solid #1e3fa1;
+  text-align: center;
+  font-size: 14px;
+  color: #333;
+}
+
+#tabela tbody tr:nth-child(even) {
+  background-color: #f0f2ff;
+}
+
+#tabela tbody tr:hover {
+  background-color: #e0e7ff;
+}

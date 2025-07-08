@@ -3,6 +3,7 @@ const form = document.getElementById('form');
 const marcaInput = document.getElementById('marca');
 const modeloInput = document.getElementById('modelo');
 const tipoInput = document.getElementById('tipo');
+const placaInput = document.getElementById('placa');
 const anoInput = document.getElementById('ano');
 const corInput = document.getElementById('cor');
 const statusInput = document.getElementById('status');
@@ -15,7 +16,9 @@ form.addEventListener('submit', async e => {
         marca: marcaInput.value,
         modelo: modeloInput.value,
         tipo: tipoInput.value,
-        ano: Number(anoInput.value),
+        placa: placaInput.value,
+        // ano: Number(anoInput.value),
+        ano: anoInput.value,
         cor: corInput.value,
         status: statusInput.value
     };
@@ -30,7 +33,7 @@ form.addEventListener('submit', async e => {
         });
 
         if (res.ok) {
-            window.location.href = 'index.html';
+            window.location.href = '../index.html';
         } else {
             throw new Error(res.statusText);
         }
