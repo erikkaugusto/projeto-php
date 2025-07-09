@@ -1,67 +1,73 @@
 <?php
-
 require_once __DIR__ . '/Controllers/ControlaVeiculo.php';
+require_once __DIR__ . '/Controllers/ControlaTipo.php';
+require_once __DIR__ . '/Controllers/ControlaMarca.php';
 
-// Cabeçalhos CORS e JSON
+// ===== CORS e Headers comuns =====
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type');
 header('Content-Type: application/json; charset=UTF-8');
-
-$ctrl = new ControlaVeiculo();
-
-// Lê JSON do corpo (para POST e PUT)
-$input = file_get_contents('php://input');
-$dados    = json_decode($input, true);
-
-//    Exemplo de REQUEST_URI:  /rota/  (ou  /usuarios/3)
-$uri        = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-$uri        = trim($uri, '/');              // remove "/" nas pontas
-$partes     = explode('/', $uri);            // quebra em ["rota"] ou ["rota","3"]
-$recurso    = $partes[0] ?? '';              // "rota" ou vazio
-$id         = isset($partes[1]) && is_numeric($partes[1]) 
-                ? (int)$partes[1] 
-                : null;
 
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     http_response_code(204);
     exit;
 }
 
-if ($recurso === 'veiculos') {
-    // Método HTTP e ID definem qual ação chamar
-    if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-        if ($id === null) {
-            // GET /usuarios → lista todos
-            $ctrl->listarTodos();
-        } else {
-            // GET /usuarios/{id} → busca por ID
-            $ctrl->buscarPorId($id);
-        }
-    } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        // POST /usuarios → criar novo (espera JSON com nome, email, idade)
+// ===== Lê entrada e URI =====
+$input  = file_get_contents('php://input');
+$dados  = json_decode($input, true);
+
+$uri        = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
+[$recurso, $id] = array_pad(explode('/', $uri, 2), 2, null);
+$id = is_numeric($id) ? (int)$id : null;
+
+// ===== Roteador central =====
+$roteador = [
+    'veiculos' => new ControlaVeiculo(),
+    'tipos'    => new ControlaTipo(),
+    'marcas'   => new ControlaMarca(),
+    // Adicione mais controladores aqui se necessário
+];
+
+// ===== Validação da rota =====
+if (!isset($roteador[$recurso])) {
+    http_response_code(404);
+    echo json_encode(['error' => 'Recurso não encontrado']);
+    exit;
+}
+
+$ctrl = $roteador[$recurso];
+
+// ===== Despacha ação com base no método HTTP =====
+switch ($_SERVER['REQUEST_METHOD']) {
+    case 'GET':
+        $id === null ? $ctrl->listarTodos() : $ctrl->buscarPorId($id);
+        break;
+
+    case 'POST':
         $ctrl->salvar($dados);
-    } elseif ($_SERVER['REQUEST_METHOD'] === 'PUT') {
-        // PUT /usuarios/{id} → atualizar
+        break;
+
+    case 'PUT':
         if ($id === null) {
             http_response_code(400);
             echo json_encode(['error' => 'ID obrigatório para atualizar']);
-            exit;
+        } else {
+            $ctrl->atualizar($id, $dados);
         }
-        $ctrl->atualizar($id, $dados);
-    } elseif ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
-        // DELETE /usuarios/{id} → excluir
+        break;
+
+    case 'DELETE':
         if ($id === null) {
             http_response_code(400);
             echo json_encode(['error' => 'ID obrigatório para excluir']);
-            exit;
+        } else {
+            $ctrl->excluir($id);
         }
-        $ctrl->excluir($id);
-    } else {
+        break;
+
+    default:
         http_response_code(405);
         echo json_encode(['error' => 'Método não permitido']);
-    }
-} else {
-    http_response_code(404);
-    echo json_encode(['error' => 'Recurso não encontrado']);
 }

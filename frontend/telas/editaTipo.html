@@ -2,10 +2,10 @@
 <html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vehicle Manager</title>
-    <link rel="shortcut icon" href="../imgs/favicon.ico" type="image/-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Tipo</title>
+    <link rel="shortcut icon" href="../imgs/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
@@ -19,26 +19,29 @@
     <main>
         <div class="main-div">
             <div class="main-div-nav">
-                <a class="main-div-nav-link" href="cadastra.html">Veículo</a>
-                <a class="main-div-nav-link" href="cadastraTipo.html">Tipo</a>
-                <a class="main-div-nav-link" href="cadastraMarca.html">Marca</a>
+                <a class="main-div-nav-link" href="pesquisa.html">Veículo</a>
+                <a class="main-div-nav-link" href="pesquisaTipo.html">Tipo</a>
+                <a class="main-div-nav-link" href="pesquisaMarca.html">Marca</a>
             </div>
-            <a href="index.html" class="main-div-link">Voltar para página inicial</a>
+            <a href="../index.html" class="main-div-link">Voltar para página inicial</a>
         </div>
         <section class="form-container">
-            <h2 class="form-titulo">Cadastro de Tipos</h2>
+            <h2 class="form-titulo">Editar Tipo</h2>
             <form id="form">
+                <input type="hidden" name="id" id="id">
+
                 <label for="nome">Nome</label>
                 <input type="text" id="nome" name="nome" maxlength="50" required>
 
                 <label for="categoria">Categoria</label>
                 <input type="text" id="categoria" name="categoria" maxlength="100" required>
 
-                <button type="submit" class="form-botao">Cadastrar</button>
+                <button type="submit" class="form-botao">Salvar</button>
             </form>
         </section>
     </main>
-    <script src="../js/cadastraTipo.js"></script>
+
+    <script src="../js/editaTipo.js"></script>
 </body>
 
 </html>

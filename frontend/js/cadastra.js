@@ -1,4 +1,4 @@
-const API = 'http://177.44.248.85/ahlert/projeto/backend/veiculos'; 
+const API = 'http://177.44.248.85/ahlert/projeto/backend/veiculos';
 const form = document.getElementById('form');
 const marcaInput = document.getElementById('marca');
 const modeloInput = document.getElementById('modelo');
@@ -15,11 +15,10 @@ form.addEventListener('submit', async e => {
     const payload = {
         marca: marcaInput.value,
         modelo: modeloInput.value,
-        tipo: tipoInput.value,
         placa: placaInput.value,
-        // ano: Number(anoInput.value),
         ano: anoInput.value,
         cor: corInput.value,
+        tipo: tipoInput.value,
         status: statusInput.value
     };
 
@@ -33,7 +32,7 @@ form.addEventListener('submit', async e => {
         });
 
         if (res.ok) {
-            window.location.href = '../index.html';
+            window.location.href = '../telas/pesquisa.html';
         } else {
             throw new Error(res.statusText);
         }

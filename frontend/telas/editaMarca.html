@@ -2,10 +2,10 @@
 <html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vehicle Manager</title>
-    <link rel="shortcut icon" href="../imgs/favicon.ico" type="image/-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Marca</title>
+    <link rel="shortcut icon" href="../imgs/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
@@ -19,20 +19,22 @@
     <main>
         <div class="main-div">
             <div class="main-div-nav">
-                <a class="main-div-nav-link" href="cadastra.html">Veículo</a>
-                <a class="main-div-nav-link" href="cadastraTipo.html">Tipo</a>
-                <a class="main-div-nav-link" href="cadastraMarca.html">Marca</a>
+                <a class="main-div-nav-link" href="pesquisa.html">Veículo</a>
+                <a class="main-div-nav-link" href="pesquisaTipo.html">Tipo</a>
+                <a class="main-div-nav-link" href="pesquisaMarca.html">Marca</a>
             </div>
-            <a href="index.html" class="main-div-link">Voltar para página inicial</a>
+            <a href="../index.html" class="main-div-link">Voltar para página inicial</a>
         </div>
         <section class="form-container">
-            <h2 class="form-titulo">Cadastro de Marcas</h2>
+            <h2 class="form-titulo">Editar Marca</h2>
             <form id="form">
+                <input type="hidden" name="id" id="id">
+
                 <label for="nome">Nome</label>
                 <input type="text" id="nome" name="nome" maxlength="50" required>
 
                 <label for="anofundacao">Ano de Fundação</label>
-                <input type="number" id="anofundacao" name="anofundacao" min="1800" max="2099" required>
+                <input type="number" id="anofundacao" name="anofundacao" min="1500" max="2099" required>
 
                 <label for="pais">País</label>
                 <input type="text" id="pais" name="pais" maxlength="50" required>
@@ -43,11 +45,12 @@
                     <option value="false">Não</option>
                 </select>
 
-                <button type="submit" class="form-botao">Cadastrar</button>
+                <button type="submit" class="form-botao">Salvar</button>
             </form>
         </section>
     </main>
-    <script src="../js/cadastraMarca.js"></script>
+
+    <script src="../js/editaMarca.js"></script>
 </body>
 
 </html>
