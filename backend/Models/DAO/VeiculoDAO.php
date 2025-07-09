@@ -80,7 +80,8 @@ class VeiculoDAO
                 $veiculo->getAno(),
                 $veiculo->getCor(),
                 $veiculo->getTipo(),
-                $veiculo->getStatus()
+                $veiculo->getStatus(),
+                $veiculo->getId()
             ]);
             $atualizados = $stmt->rowCount() > 0;
             $this->db->closeConnection();

@@ -78,6 +78,7 @@ class MarcaDAO
                 $marca->getAnoFundacao(),
                 $marca->getPais(),
                 $marca->getAtivo(),
+                $marca->getId()
             ]);
             $atualizados = $stmt->rowCount() > 0;
             $this->db->closeConnection();

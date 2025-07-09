@@ -75,7 +75,8 @@ class TipoDAO
             $stmt = $this->connection->prepare($sql);
             $stmt->execute([
                 $tipo->getNome(),
-                $tipo->getCategoria()
+                $tipo->getCategoria(),
+                $tipo->getId()
             ]);
             $atualizados = $stmt->rowCount() > 0;
             $this->db->closeConnection();

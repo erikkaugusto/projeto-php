@@ -58,7 +58,7 @@ form.addEventListener('submit', async e => {
         });
 
         if (res.ok) {
-            window.location.href = '../index.html';
+            window.location.href = '../telas/pesquisa.html';
         } else {
             throw new Error(res.statusText);
         }
